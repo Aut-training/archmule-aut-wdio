@@ -2,7 +2,7 @@
   "name": "archmule-aut-wdio",
   "version": "1.0.0",
   "description": "Archmule automation",
-  "main": "index.js",
+  "main": "basic.js",
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },
