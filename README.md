@@ -1,3 +1,7 @@
+
+
+![Archmule logo](https://archmule.com/images/ui/logo-og.png)
+
 # Archmule-aut-wdio
 Project to training about automation with Mocha and Chai frameworks
 Using the following technologies:
