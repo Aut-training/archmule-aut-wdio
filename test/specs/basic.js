@@ -1,8 +1,3 @@
-// // import { expect } from 'chai';
-// import loginPage from '../pages/Login.page';
-// import LoginPage from '../../pages/Login.page';
-// const mainPage = requires( '../pages/Login.page');
-
 const assert = require('assert');
 let should = require('chai').should();
 
@@ -10,9 +5,6 @@ let should = require('chai').should();
 describe('Login and logout of the archmule page', () => {
   it('should have the right user and password credentials', () => {
     browser.url('https://archmule.com/login');
-
-    // let loginButton = $("a[class='button login']");
-    // loginButton.click();
 
     let mailUserTxt = $('#identifier');
     mailUserTxt.setValue("sirius_779@hotmail.com");

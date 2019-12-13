@@ -7,11 +7,20 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
+            "name": "Mocha Debug",
+            "port": 5859,
+            "timeout": 60000,
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/wdio",
+            "cwd": "${workspaceRoot}",
+            // "s
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "args": [
+                "wdio.conf.js"
             ],
-            "program": "${workspaceFolder}\\basic.js"
-        }
+            "env": {
+                "DEBUG": "1"
+            }
+        },
     ]
 }
