@@ -4,7 +4,7 @@
   "description": "Archmule automation",
   "main": "basic.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.conf.js --input-type=module"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,6 @@
     "eslint": "^6.7.2",
     "mocha": "^6.2.2",
     "wdio-chromedriver-service": "^5.0.2"
-  }
+  },
+  "type": "module"
 }

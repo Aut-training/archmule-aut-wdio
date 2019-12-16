@@ -18,6 +18,7 @@ module.exports = {
         'sourceType': 'module'
     },
     'rules': {
+        'import/prefer-default-export': 'off',
         'indent': [
             'error',
             2
