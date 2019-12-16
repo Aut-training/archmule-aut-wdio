@@ -1,17 +1,19 @@
-import MainPage from './Main.page';
+import mainPage from './Main.page';
+import { createPublicKey } from 'crypto';
 
-class LoginPage extends MainPage {
+class LoginPage extends mainPage {
+    get loginBtn() { return $('a.button'); }
 
-    get loginButton() { return $('a.button'); }
 
     open() {
-        super.open();
+        super.open()
     }
 
-    clickLogInBtn() {
-        this.loginButton.click();
+    clickLoginBtn() {
+        this.loginBtn.click();
     }
-
 }
 
 export default new LoginPage();
+// module.exports.LoginPage;
+// module.exports.clickLoginBtn();
