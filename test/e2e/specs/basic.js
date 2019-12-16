@@ -7,21 +7,21 @@ describe('Login and logout of the archmule page', () => {
     browser.url('https://archmule.com/login');
 
     let mailUserTxt = $('#identifier');
-    mailUserTxt.setValue("sirius_779@hotmail.com");
+    mailUserTxt.setValue('sirius_779@hotmail.com');
 
     let passwrdTxt = $('#password');
     passwrdTxt.setValue('bootcamp');
 
-    let loginButton = $("button[type='submit']");
+    let loginButton = $('button[type=\'submit\']');
     loginButton.click();
     browser.pause(2000);
 
-    let locator = "img[alt=\"user's avatar\"]";
+    let locator = 'img[alt="user\'s avatar"]';
     let userAvatar = $(locator);
     userAvatar.click();
     browser.pause(2000);
 
-    let logOutBtn = $("button[type='submit']");
+    let logOutBtn = $('button[type=\'submit\']');
     logOutBtn.click();
     const url = browser.getUrl();
     url.should.be.equal('https://archmule.com/');
