@@ -1,6 +1,7 @@
 const loginPage = require('../pages/Login.page');
 const dashboardPage = require('../pages/Dashboard.page');
 const context = require('../../data/context');
+const { expect } = require('chai');
 
 describe('Create a new project ', () => {
   it('should succesfully create a new project', () => {
@@ -11,15 +12,14 @@ describe('Create a new project ', () => {
     loginPage.clickLoginBtn();
 
     //Create Project
-    dashboardPage.clickCreateProjectBtn();
+    dashboardPage.clickProjectSidebar();
+    dashboardPage.clickcreateProjectSide();
     dashboardPage.fillProjectTitle('Project100');
     dashboardPage.clickCreateNewProjectBtn();
+    browser.pause(2000);
 
-    //Logout
-    let locator = '.Avatar>img[alt="user\'s avatar"]';
-    let userAvatar = $(locator);
-    userAvatar.click();
-    let logOutBtn = $('button[type=\'submit\']');
-    logOutBtn.click();
+    let result = dashboardPage.getProjectTitleText();
+    expect(result).to.equal('Project100');
   });
+
 });
