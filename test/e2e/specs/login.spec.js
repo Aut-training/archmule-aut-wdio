@@ -1,7 +1,5 @@
-// import { loginPage } from '../pages/Login.page.js';
-
 const loginPage = require('../pages/Login.page.js');
-
+const contex = require('../../data/context');
 const assert = require('assert');
 let should = require('chai').should();
 
@@ -9,16 +7,23 @@ describe('Login and logout of the archmule page', () => {
   it('should succesfully login with right user and password credentials', () => {
 
     loginPage.open('https://archmule.com/login');
-    loginPage.fillMailUser('sirius_779@hotmail.com');
-    loginPage.fillPasswUser('bootcamp');
+    // loginPage.fillMailUser('sirius_779@hotmail.com');
+    loginPage.fillMailUser(context.logins.user);
+    loginPage.fillPasswUser(context.logins.password);
     loginPage.clickLoginBtn();
 
-    const url = browser.getUrl();
+    const url = loginPage.getloginUrl();
     url.should.be.equal('https://archmule.com/');
-    
+
+    let locator = 'img[alt="user\'s avatar"]';
+    let userAvatar = $(locator);
+    userAvatar.click();
+
+    let logOutBtn = $('button[type=\'submit\']');
+    logOutBtn.click();
   });
 
-  it('shoul\'d succesfully login with a wrong password', () => {
+  it('shouln\'t succesfully login with a wrong password', () => {
 
     loginPage.open('https://archmule.com/login');
     loginPage.fillMailUser('sirius_779@hotmail.com');
@@ -27,32 +32,27 @@ describe('Login and logout of the archmule page', () => {
 
     const alertText = loginPage.getTextWrongCredentials();
     alertText.should.be.equal('The credentials you provided are invalid.');
-
   });
 
-  // it('should have the right user and password credentials', () => {
-  //   browser.url('https://archmule.com/login');
+  it('shouln\'t succesfully login with a empty Username', () => {
 
-  //   let userEmailTxt = $('#identifier');
-  //   userEmailTxt.setValue('sirius_779@hotmail.com');
+    loginPage.open('https://archmule.com/login');
 
-  //   let userPasswrdTxt = $('#password');
-  //   userPasswrdTxt.setValue('bootcamp');
+    loginPage.clickLoginBtn();
 
-  //   let loginButton = $('button[type=\'submit\']');
-  //   loginButton.click();
-  //   // browser.pause(2000);
+    const alertText = loginPage.getIdentifierMsg();
+    alertText.should.be.equal('The identifier field is required.');
+  });
 
-  //   let locator = 'img[alt="user\'s avatar"]';
-  //   let userAvatar = $(locator);
-  //   userAvatar.click();
-  //   // browser.pause(2000);
+  it('shouln\'t succesfully login with a empty Password', () => {
 
-  //   let logOutBtn = $('button[type=\'submit\']');
-  //   logOutBtn.click();
-  //   const url = browser.getUrl();
-  //   url.should.be.equal('https://archmule.com/');
+    loginPage.open('https://archmule.com/login');
 
-  // });
+    loginPage.clickLoginBtn();
+
+    const alertText = loginPage.getPasswordMsg();
+    alertText.should.be.equal('The password field is required.');
+  });
+
 
 });

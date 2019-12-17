@@ -1,9 +1,6 @@
-// import mainPage from './Main.page';
 // const mainPage = require('./Main.page');
 
 class LoginPage {
-  // get loginBtn() { return $('a.button'); }
-  
   open(path) {
     browser.url(path);
   }
@@ -22,8 +19,16 @@ class LoginPage {
     return $('div.alert-box');
   }
 
+  get identifierRequiredMsg() {
+    return $('div.error>input#identifier+small');
+  }  
+
+  get passwordRequiredMsg() {
+    return $('div.error>input#password+small');
+  }   
+
   getloginUrl() {
-    return this.browser.getUrl();
+    return browser.getUrl();
   }
 
   fillMailUser(mailUser) {
@@ -34,12 +39,20 @@ class LoginPage {
     this.passwrdTxt.setValue(passwUser);
   }
 
-  getTextWrongCredentials(){
+  getTextWrongCredentials() {
     return this.alertWrongCredentials.getText();
   }
 
   clickLoginBtn() {
     this.loginButton.click();
+  }
+
+  getIdentifierMsg(){
+    return this.identifierRequiredMsg.getText();
+  }
+
+  getPasswordMsg(){
+    return this.passwordRequiredMsg.getText();
   }
 
 }

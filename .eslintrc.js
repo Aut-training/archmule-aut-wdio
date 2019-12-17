@@ -6,8 +6,8 @@ module.exports = {
     },
     'extends': 'eslint:recommended',
     'globals': {
-        "browser": false,
-        'expect': false,
+        'browser': false,
+        'expect': false,      
         'Atomics': 'readonly',
         'SharedArrayBuffer': 'readonly',
         "$": false,
