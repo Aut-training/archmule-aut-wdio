@@ -1,15 +1,18 @@
 const loginPage = require('../pages/Login.page.js');
+// eslint-disable-next-line no-unused-vars
 const contex = require('../../data/context');
+// eslint-disable-next-line no-unused-vars
 const assert = require('assert');
+// eslint-disable-next-line no-unused-vars
 let should = require('chai').should();
+
 
 describe('Login and logout of the archmule page', () => {
   it('should succesfully login with right user and password credentials', () => {
 
     loginPage.open('https://archmule.com/login');
-    // loginPage.fillMailUser('sirius_779@hotmail.com');
-    loginPage.fillMailUser(context.logins.user);
-    loginPage.fillPasswUser(context.logins.password);
+    loginPage.fillMailUser(context.logins.valid_user.name);
+    loginPage.fillPasswUser(context.logins.valid_user.password);
     loginPage.clickLoginBtn();
 
     const url = loginPage.getloginUrl();
@@ -26,8 +29,8 @@ describe('Login and logout of the archmule page', () => {
   it('shouln\'t succesfully login with a wrong password', () => {
 
     loginPage.open('https://archmule.com/login');
-    loginPage.fillMailUser('sirius_779@hotmail.com');
-    loginPage.fillPasswUser('wrongPassword1');
+    loginPage.fillMailUser(context.logins.valid_user.name);
+    loginPage.fillPasswUser(context.logins.valid_user.password);
     loginPage.clickLoginBtn();
 
     const alertText = loginPage.getTextWrongCredentials();
@@ -47,7 +50,7 @@ describe('Login and logout of the archmule page', () => {
   it('shouln\'t succesfully login with a empty Password', () => {
 
     loginPage.open('https://archmule.com/login');
-
+    loginPage.fillMailUser(context.logins.valid_user.name);
     loginPage.clickLoginBtn();
 
     const alertText = loginPage.getPasswordMsg();
