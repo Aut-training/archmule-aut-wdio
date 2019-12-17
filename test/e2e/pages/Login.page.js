@@ -25,8 +25,16 @@ class LoginPage {
 
   get passwordRequiredMsg() {
     return $('div.error>input#password+small');
-  }   
+  }
+  
+  get userAvatar() {
+    return $('.Avatar>img[alt="user\'s avatar"]');
+  }
 
+  get googleLoginBtn() {
+    return $('.google-btn');
+  }
+  
   getloginUrl() {
     return browser.getUrl();
   }
@@ -53,6 +61,16 @@ class LoginPage {
 
   getPasswordMsg(){
     return this.passwordRequiredMsg.getText();
+  }
+ 
+  userAvatarDisplayed(){
+    this.userAvatar.waitForExist(3000);
+    let value = this.userAvatar.isDisplayed();
+    return value;
+  }
+
+  getTextGoogleLoginBtn(){
+    return this.googleLoginBtn.getText();
   }
 
 }
