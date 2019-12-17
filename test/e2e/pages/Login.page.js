@@ -1,7 +1,12 @@
-import mainPage from './Main.page';
+// import mainPage from './Main.page';
+// const mainPage = require('./Main.page');
 
-class LoginPage extends mainPage {
+class LoginPage {
   // get loginBtn() { return $('a.button'); }
+  
+  open(path) {
+    browser.url(path);
+  }
 
   get mailUserTxt() {
     return $('#identifier');
@@ -13,8 +18,8 @@ class LoginPage extends mainPage {
     return $('button[type=\'submit\']');
   }
 
-  open() {
-    super.open('https://archmule.com/login');
+  get alertWrongCredentials() {
+    return $('div.alert-box');
   }
 
   getloginUrl() {
@@ -22,18 +27,21 @@ class LoginPage extends mainPage {
   }
 
   fillMailUser(mailUser) {
-    this.mailUserTxt.sendKeys(mailUser);
+    this.mailUserTxt.setValue(mailUser);
   }
 
   fillPasswUser(passwUser) {
-    this.passwrdTxt.sendKeys(passwUser);
+    this.passwrdTxt.setValue(passwUser);
+  }
+
+  getTextWrongCredentials(){
+    return this.alertWrongCredentials.getText();
   }
 
   clickLoginBtn() {
     this.loginButton.click();
   }
 
-
 }
 
-export const loginPage = new LoginPage();
+module.exports = new LoginPage();

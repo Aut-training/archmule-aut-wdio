@@ -1,4 +1,4 @@
-export default class MainPage {
+class MainPage {
   constructor() {
     this.title = 'My Page';
   }
@@ -7,3 +7,5 @@ export default class MainPage {
     browser.url(path);
   }
 }
+
+module.exports = new MainPage();
