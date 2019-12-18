@@ -1,56 +1,64 @@
 // const loginPage = require('../pages/Login.page');
 // const dashboardPage = require('../pages/Dashboard.page');
+// const projectPage = require('../pages/Project.page');
 // const context = require('../../data/context');
 // const { expect } = require('chai');
 
-// describe('Project feature ', () => {
-  
-//   beforeEach(() => {
-//     loginPage.loginAction();
+// describe('In the Archmule main page the user', () => {
+
+//   // beforeEach(() => {
+//   //   loginPage.open();
+//   //   loginPage.fillMailUser(context.logins.user.login);
+//   //   loginPage.fillPasswUser(context.logins.user.password);
+//   //   loginPage.clickLoginBtn();
+//   // });
+
+//   it('should succesfully create a new project', () => {
+//     loginPage.open();
+//     loginPage.fillMailUser(context.logins.user.login);
+//     loginPage.fillPasswUser(context.logins.user.password);
+//     loginPage.clickLoginBtn();
+
+//     dashboardPage.open();
+//     dashboardPage.clickProjectSidebar();
+//     dashboardPage.clickcreateProjectSide();
+//     dashboardPage.fillProjectTitle('Project600');
+//     dashboardPage.clickCreateNewProjectBtn();
+
+//     expect(dashboardPage.getProjectTitleText()).to.equal('Project600');
 //   });
 
-//   // it('should succesfully create a new project', () => {
-//   //   //Create Project
-//   //   dashboardPage.clickProjectSidebar();
-//   //   dashboardPage.clickcreateProjectSide();
-//   //   dashboardPage.fillProjectTitle('Project100');
-//   //   dashboardPage.clickCreateNewProjectBtn();
+//   it('should create a new task', () => {
+//     //create Task
+//     // projectPage.open();
+//     projectPage.fillTaskTextbx('TaskEX');
+//     projectPage.clickOnAddTaskBtn();
+//     browser.pause(3000);
+//     //drag and drop task    
+//     projectPage.dragAndDrop();
+//     projectPage.clickOnTaskCard();
+//     browser.pause(3000);
     
-//   //   let result = dashboardPage.getProjectTitleText();
-//   //   expect(result).to.equal('Project100');
-    
-//   //   browser.pause(4000);
+//   });
 
-//   // });
-  
 //   it('should delete a project', () => {
-//     //Login
-//     // browser.pause(4000);
-//     // // loginPage.open('https://archmule.com/login');
-//     // loginPage.fillMailUser(context.logins.user.login);
-//     // loginPage.fillPasswUser(context.logins.user.password);
-//     // loginPage.clickLoginBtn();
-    
-    
-//     //Delete Project
+//     // dashboardPage.deleteProjectAction();
+//     dashboardPage.open();
 //     dashboardPage.clickProjectSidebar();
-//     browser.pause(1000);
-//     dashboardPage.clickOnProject();
-//     browser.pause(1000);
+//     dashboardPage.clickOnProjectTitle();
 //     dashboardPage.clickOnProjectMenu();
-//     browser.pause(2000);
 //     dashboardPage.clickOnProjectMoreOpt();
-//     browser.pause(2000);
 //     dashboardPage.clickOnProjectMoreSettings();
-//     browser.pause(2000);
 //     dashboardPage.clickOnProjectSettingsDelete();
 //     dashboardPage.clickOnDeleteProjectBtn();
 //     browser.acceptAlert();
-//     browser.pause(3000);
-
 //     // dashboardPage.acceptAlertOption();   
-    
+//     expect;
+//   });
 
-//   });  
+//   // afterEach(() => {
+//   //   browser.url('https://archmule.com/login');
+//   //   // loginPage.open();    
+//   // });
 
 // });

@@ -1,6 +1,6 @@
 class DashboardPage {
-  open(path) {
-    browser.url(path);
+  open() {
+    browser.url('https://archmule.com/');
   }
 
   get projectListSidebar() { return $('.ProjectListSidebar__trigger'); }
@@ -15,7 +15,7 @@ class DashboardPage {
 
   get projectTileLabel() { return $('.ProjectInfo__title'); }
 
-  get projectTitleInSidebar() { return $('div=Project100'); }
+  get projectTitleInSidebar() { return $('div=Project600'); }
 
   get projectMenu() { return $('.Icon--vertical'); }
 
@@ -55,23 +55,28 @@ class DashboardPage {
     return this.projectTileLabel.getText();
   }
 
-  clickOnProject() {
+  clickOnProjectTitle() {
+    this.projectTitleInSidebar.waitForExist(4000);
     this.projectTitleInSidebar.click();
   }
 
   clickOnProjectMenu() {
+    this.projectMenu.waitForExist(3000);
     this.projectMenu.click();
   }
 
   clickOnProjectMoreOpt() {
+    this.projectMenuBarMore.waitForExist(3000);
     this.projectMenuBarMore.click();
   }
 
   clickOnProjectMoreSettings() {
+    this.projectMoreSettings.waitForExist(3000);
     this.projectMoreSettings.click();
   }
 
   clickOnProjectSettingsDelete() {
+    this.projectSettingsDelete.waitForExist(3000);
     this.projectSettingsDelete.click();
   }
 
@@ -79,10 +84,26 @@ class DashboardPage {
     this.deleteProjectBtn.click();
   }
 
-  acceptAlertOption(){
+  acceptAlertOption() {
     browser.acceptAlert();
   }
-
+  
+  deleteProjectAction() {
+    this.projectListSidebar.waitForExist(3000);
+    this.projectListSidebar.click();
+    this.projectTitleInSidebar.waitForExist(4000);
+    this.projectTitleInSidebar.click();
+    this.projectMenu.waitForExist(3000);
+    this.projectMenu.click();
+    this.projectMenuBarMore.waitForExist(3000);
+    this.projectMenuBarMore.click();
+    this.projectMoreSettings.waitForExist(3000);
+    this.projectMoreSettings.click();
+    this.projectSettingsDelete.waitForExist(3000);
+    this.projectSettingsDelete.click();
+    this.deleteProjectBtn.click();
+    browser.acceptAlert();
+  }
 }
 
 module.exports = new DashboardPage();
