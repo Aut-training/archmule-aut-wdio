@@ -1,3 +1,5 @@
+const loginPage = require('../pages/Login.page');
+const context = require('../../data/context');
 class LoginPage {
   open(path) {
     browser.url(path);
@@ -38,6 +40,7 @@ class LoginPage {
   }
 
   fillMailUser(mailUser) {
+    this.mailUserTxt.waitForExist(10000);
     this.mailUserTxt.setValue(mailUser);
   }
 
@@ -69,6 +72,15 @@ class LoginPage {
 
   getTextGoogleLoginBtn(){
     return this.googleLoginBtn.getText();
+  }
+
+
+  loginAction(){
+    browser.url('https://archmule.com/login');
+    // loginPage.open('https://archmule.com/login');
+    loginPage.fillMailUser(context.logins.user.login);
+    loginPage.fillPasswUser(context.logins.user.password);
+    loginPage.clickLoginBtn();
   }
 
 }
