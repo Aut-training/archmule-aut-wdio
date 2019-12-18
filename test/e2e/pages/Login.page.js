@@ -1,5 +1,3 @@
-// const mainPage = require('./Main.page');
-
 class LoginPage {
   open(path) {
     browser.url(path);
