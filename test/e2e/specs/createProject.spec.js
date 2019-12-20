@@ -1,8 +1,8 @@
 const loginPage = require('../pages/Login.page');
 const dashboardPage = require('../pages/Dashboard.page');
 const projectPage = require('../pages/Project.page');
+const projectAsserts= require('../asserts/project.asserts');
 const context = require('../../data/context');
-const { expect } = require('chai');
 
 describe('In the Archmule main page the user', () => {
 
@@ -15,18 +15,21 @@ describe('In the Archmule main page the user', () => {
     dashboardPage.open();
     dashboardPage.clickProjectSidebar();
     dashboardPage.clickcreateProjectSide();
-    dashboardPage.fillProjectTitle('Project600');
+    dashboardPage.fillProjectTitle(context.projects.project.title);
     dashboardPage.clickCreateNewProjectBtn();
-
-    expect(dashboardPage.getProjectTitleText()).to.equal('Project600');
+    projectAsserts.verifyTheTitleOfProjectCreated();    
   });
 
   it('should create a new task', () => {
-    projectPage.fillTaskTextbx('TaskEX');
+    projectPage.fillTaskTextbx(context.task.task.title);
     projectPage.clickOnAddTaskBtn();
-    browser.pause(3000);
+    projectAsserts.verifyTitleOfTaskCreated();
+  });
+
+  it('the task should be in the section "Next"', () => {
     projectPage.clickOnTaskCard();
-    expect(projectPage.getTaskCardColumnText()).equal('Next');
+    projectAsserts.verfiyTaskIsInSecctionNext();
+    
   });
 
   it('should delete a project', () => {
@@ -41,7 +44,7 @@ describe('In the Archmule main page the user', () => {
     dashboardPage.clickOnDeleteProjectBtn();
     browser.acceptAlert();
 
-    expect(dashboardPage.getProjectTitleDontExists()).to.be.true;
+    projectAsserts.verifyCreatedProjectWasDeleted();
   });
 
 });

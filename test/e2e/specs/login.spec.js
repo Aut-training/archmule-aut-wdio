@@ -1,7 +1,6 @@
 // const loginPage = require('../pages/Login.page');
 // const context = require('../../data/context');
-// const assert = require('assert');
-// let should = require('chai').should();
+// const loginAsserts = require('../../e2e/asserts/login.asserts');
 
 // describe('In Archmule login page the user', () => {
 //   beforeEach(() => {
@@ -12,14 +11,12 @@
 //     loginPage.fillMailUser(context.logins.user.login);
 //     loginPage.fillPasswUser(context.logins.user.password);
 //     loginPage.clickLoginBtn();
-
-//     (loginPage.userAvatarDisplayed()).should.be.true;
+//     loginAsserts.verifyIfUserAvatarIsDisplayed();    
 
 //     //logout
 //     let locator = '.Avatar>img[alt="user\'s avatar"]';
 //     let userAvatar = $(locator);
 //     userAvatar.click();
-
 //     let logOutBtn = $('button[type=\'submit\']');
 //     logOutBtn.click();
 //   });
@@ -28,20 +25,17 @@
 //     loginPage.fillMailUser(context.logins.user.login);
 //     loginPage.fillPasswUser(context.logins.user2.password);
 //     loginPage.clickLoginBtn();
-
-//     (loginPage.getTextWrongCredentials()).should.be.equal('The credentials you provided are invalid.');
+//     loginAsserts.verifyWrongPasswordMessage();
 //   });
 
 //   it('shouln\'t login with a empty Username', () => {
 //     loginPage.clickLoginBtn();
-
-//     (loginPage.getIdentifierMsg()).should.be.equal('The identifier field is required.');
+//     loginAsserts.verifyEmptyUsernameMessage();
 //   });
 
 //   it('shouln\'t login with a empty Password', () => {
 //     loginPage.fillMailUser(context.logins.user.login);
 //     loginPage.clickLoginBtn();
-
-//     (loginPage.getPasswordMsg()).should.be.equal('The password field is required.');
+//     loginAsserts.verifyEmptyPasswordMessage();
 //   });
 // });

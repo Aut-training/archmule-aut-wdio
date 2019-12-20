@@ -1,33 +1,37 @@
 class DashboardPage {
-  
+
   get projectListSidebar() { return $('.ProjectListSidebar__trigger'); }
-  
+
   get createProjectSide() { return $('.CreateProject'); }
-  
+
   get createProjectBtn() { return $('button>svg.space-right'); }
-  
+
   get projectTittleTxt() { return $('.form-control'); }
-  
+
   get createNewProjectBtn() { return $('span.mx-auto'); }
-  
+
   get projectTileLabel() { return $('.ProjectInfo__title'); }
-  
-  get projectTitleInSidebar() { return $('div=Project600'); }
-  
+
+  get projectTitleInSidebar() { 
+    let projectTitle = 'div=ProjectExample';
+    let result = projectTitle.replace('ProjectExample', 'Automation Project 01');
+    return $(result);
+  }
+
   get projectMenu() { return $('.Icon--vertical'); }
-  
+
   get projectMenuBarMore() { return $('.ProjectSettings__links-more>a'); }
-  
+
   get projectMoreSettings() { return $('div=Settings'); }
-  
+
   get projectSettingsDelete() { return $('a[href$="delete"]'); }
-  
+
   get deleteProjectBtn() { return $('.Button--red'); }
-  
+
   open() {
     browser.url('https://archmule.com/');
   }
-  
+
   clickProjectSidebar() {
     this.projectListSidebar.waitForExist(5000);
     this.projectListSidebar.click();
@@ -52,15 +56,15 @@ class DashboardPage {
   }
 
   getProjectTitleText() {
-    this.projectTileLabel.waitForExist(3000,true,'the project dont exists');
+    this.projectTileLabel.waitForExist(3000, true, 'the project dont exists');
     return this.projectTileLabel.getText();
   }
-  
+
   getProjectTitleDontExists() {
-    return this.projectTileLabel.waitForExist(4000,true,'the project still exists');
+    return this.projectTileLabel.waitForExist(4000, true, 'the project still exists');
   }
 
-  clickOnProjectTitle() {
+  clickOnProjectTitle() {    
     this.projectTitleInSidebar.waitForExist(4000);
     this.projectTitleInSidebar.click();
   }
@@ -92,7 +96,7 @@ class DashboardPage {
   acceptAlertOption() {
     browser.acceptAlert();
   }
-  
+
   //Single method to replace all the actions
   deleteProjectAction() {
     this.projectListSidebar.waitForExist(3000);
