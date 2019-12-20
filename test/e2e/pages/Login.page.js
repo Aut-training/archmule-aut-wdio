@@ -1,6 +1,6 @@
 class LoginPage {
-  open(path) {
-    browser.url(path);
+  open() {
+    browser.url('https://archmule.com/login');
   }
 
   get mailUserTxt() {
@@ -38,6 +38,7 @@ class LoginPage {
   }
 
   fillMailUser(mailUser) {
+    this.mailUserTxt.waitForExist(15000);
     this.mailUserTxt.setValue(mailUser);
   }
 
@@ -70,6 +71,7 @@ class LoginPage {
   getTextGoogleLoginBtn(){
     return this.googleLoginBtn.getText();
   }
+
 
 }
 

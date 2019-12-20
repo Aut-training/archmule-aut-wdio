@@ -1,0 +1,8 @@
+{
+  "project": {
+    "title": "Automation Project 01",
+    "description": "Project for the automation of a educational webpage",
+    "tags": "education, react, kids",
+    "visibility":"private"
+  }
+}

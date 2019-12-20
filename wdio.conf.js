@@ -1,5 +1,5 @@
 exports.config = {
-  //Uncomment to activate debug mode
+  // Uncomment to activate debug mode
   // debug:true,
   // execArgv:['--inspect-brk=127.0.0.1:5859'],
   //

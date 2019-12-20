@@ -7,7 +7,7 @@ module.exports = {
     'extends': 'eslint:recommended',
     'globals': {
         'browser': false,
-        'expect': false,      
+        'expect': false,
         'Atomics': 'readonly',
         'SharedArrayBuffer': 'readonly',
         "$": false,
@@ -34,6 +34,12 @@ module.exports = {
         'semi': [
             'error',
             'always'
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "should|expect"
+            }
         ]
     },
     "plugins": [
